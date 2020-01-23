@@ -1,5 +1,5 @@
 <?php
-class Topic
+class Section
 {
     private $image;
     private $name;

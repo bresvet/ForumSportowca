@@ -1,48 +1,30 @@
 <?php
 
-require_once 'Controllers//BoardController.php';
-require_once 'Controllers//SecurityController.php';
-require_once 'Controllers//AdminController.php';
+require_once 'Controllers/SectionPageController.php';
 
 class Routing
 {
-
     private $routes = [];
 
     public function __construct()
     {
-        $this->routes = [
-            'board' => [
-                'controller' => 'BoardController',
-                'action' => 'getLatestPhotos'
+        $this->routes =
+            [
+            'SectionPage' => [
+                'controller' => 'SectionPageController',
+                'action' => 'displaySections'
             ],
-            'login' => [
-                'controller' => 'SecurityController',
-                'action' => 'login'
-            ],
-            'logout' => [
-                'controller' => 'SecurityController',
-                'action' => 'logout'
-            ],
-            'admin' => [
-                'controller' => 'AdminController',
-                'action' => 'index'
-            ],
-            'users' => [
-                'controller' => 'AdminController',
-                'action' => 'users'
-            ]
-        ];
+            ];
     }
 
 public function runAll()
 {
-$page = isset($_GET['page']) ? $_GET['page'] : 'login';
+$page = isset($_GET['page']) ? $_GET['page'] : 'index';
 
-if (isset($this->routes[$page])) {
+if (isset($this->routes[$page]))
+{
 $controller = $this->routes[$page]['controller'];
 $action = $this->routes[$page]['action'];
-
 $object = new $controller;
 $object->$action();
 }
