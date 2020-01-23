@@ -5,7 +5,7 @@ class Section
     private $name;
     private $lastDate;
 
-    public function __construct(string $image, int $name, int $lastDate)
+    public function __construct(string $image, string $name, string $lastDate)
     {
         $this->image = $image;
         $this->name = $name;

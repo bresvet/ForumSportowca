@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Controllers/SectionPageController.php';
+require_once 'Controllers/LoggingController.php';
 
 class Routing
 {
@@ -14,6 +15,10 @@ class Routing
                 'controller' => 'SectionPageController',
                 'action' => 'displaySections'
             ],
+                'index' => [
+                    'controller' => 'LoggingController',
+                    'action' => 'login'
+                ]
             ];
     }
 
